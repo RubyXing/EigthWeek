@@ -3,10 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="abc">
-    <select id="all" resultType="com.xing.Dept">
+    <select id="all" resultType="Dept">
     select * from dept;
   </select>
-    <insert id="add" keyProperty="com.xing.Dept">
+    <insert id="add" keyProperty="Dept">
         insert into dept values (#{deptno},#{dname},#{loc});
     </insert>
+
+    <delete id="delById" parameterType="int">
+        delete from dept where deptno=#{deptno} ;
+    </delete>
+
+    <update id="update" keyProperty="Dept">
+        update dept set dname=#{dname}, loc=#{loc} where deptno=#{deptno} ;
+    </update>
+
+    <select id="selById" parameterType="int" resultType="Dept">
+        select * from dept where deptno = #{deptno};
+    </select>
+
+
 </mapper>

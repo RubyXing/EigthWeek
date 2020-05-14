@@ -3,7 +3,7 @@ package com.xing;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-
+@Data
 @Accessors(chain = true)
 public class Dept {
   private long deptno;

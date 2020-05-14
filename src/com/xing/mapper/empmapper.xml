@@ -6,4 +6,7 @@
     <select id="all" resultType="com.xing.Dept">
     select * from dept;
   </select>
+    <insert id="add" keyProperty="com.xing.Dept">
+        insert into dept values (#{deptno},#{dname},#{loc});
+    </insert>
 </mapper>

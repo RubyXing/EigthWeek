@@ -4,7 +4,9 @@ package com.xing;/*
  */
 
 import com.xing.mapper.HusbandMapper;
+import com.xing.mapper.PersonMapper;
 import com.xing.pojo.Husband;
+import com.xing.pojo.Person;
 import lombok.Cleanup;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -28,7 +30,9 @@ public class Launcher2 {
 //            Husband husband1 = husbandMapper.findHusById2(1001);
 //            System.out.println(husband1);
 
-
+            PersonMapper personMapper = session.getMapper(PersonMapper.class);
+            Person pById = personMapper.findPById(1001);
+            System.out.println(pById);
 
         } catch (IOException e) {
             e.printStackTrace();

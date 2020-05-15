@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xing.mapper.PermsMapper">
+
+    <select id="findPermsByRid" parameterType="int" resultType="Perms">
+        select * from perms p,role_perms rp,role r where p.pid=rp.pid and rp.rid=r.rid and r.rid=#{rid};
+    </select>
+</mapper>

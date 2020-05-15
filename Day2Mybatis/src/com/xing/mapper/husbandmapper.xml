@@ -31,10 +31,7 @@
             column：对应结果集中的字段名，哪个字段用作下一查询条件
             select：执行哪个查询语句
             -->
-        <association property="wife" column="Wid" select="findWifeByid"></association>
+        <association property="wife" column="Wid" select="com.xing.mapper.WifeMapper.findWifeById"/>
     </resultMap>
-    <!--        通过wid查询wife-->
-    <select id="findWifeByid" parameterType="int" resultType="Wife">
-        select * from wife where wid=#{wid};
-    </select>
+
 </mapper>

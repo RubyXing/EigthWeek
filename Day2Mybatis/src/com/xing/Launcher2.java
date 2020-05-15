@@ -24,11 +24,11 @@ public class Launcher2 {
 
             @Cleanup SqlSession session = factory.openSession();
 
-            HusbandMapper husbandMapper = session.getMapper(HusbandMapper.class);
+//            HusbandMapper husbandMapper = session.getMapper(HusbandMapper.class);
+//            Husband husband1 = husbandMapper.findHusById2(1001);
+//            System.out.println(husband1);
 
-            Husband husband1 = husbandMapper.findHusById2(1001);
 
-            System.out.println(husband1);
 
         } catch (IOException e) {
             e.printStackTrace();

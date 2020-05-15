@@ -22,7 +22,6 @@
 <!--    写映射配置文件-->
     <mappers>
 
-
 <!--        包匹配放最后-->
         <package name="com.xing.mapper"/>
     </mappers>

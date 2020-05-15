@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xing.mapper.HusbandMapper">
+<!--    一对一查询-->
+<!--    方法一：-->
+    <select id="findHusById"  resultMap="find_cup_byhId">
+        select * from  husband h,wife w where h.wid=w.wid and hid = #{hid};
+    </select>
+
+    <resultMap id="find_cup_byhId" type="Husband">
+        <id column="hid" property="hid"/>
+        <result column="hname" property="hname"/>
+<!--        wife属性配置-->
+        <association property="wife" javaType="Wife">
+            <id column="wid" property="wid"/>
+            <result column="wname" property="wname"/>
+        </association>
+    </resultMap>
+
+<!--方法二：-->
+    <select id="findHusById2" resultMap="find_cup_byhId2">
+        select * from husband where hid=#{hid};
+    </select>
+
+    <resultMap id="find_cup_byhId2" type="Husband">
+        <id column="hid" property="hid"/>
+<!--        如果除主键外，能够通过列名找到对应的setter方法，可以不写映射，但必须写id-->
+<!--        property：是husband中的属性
+            column：对应结果集中的字段名，哪个字段用作下一查询条件
+            select：执行哪个查询语句
+            -->
+        <association property="wife" column="Wid" select="findWifeByid"></association>
+    </resultMap>
+    <!--        通过wid查询wife-->
+    <select id="findWifeByid" parameterType="int" resultType="Wife">
+        select * from wife where wid=#{wid};
+    </select>
+</mapper>

@@ -22,8 +22,10 @@
 
     <resultMap id="user_mapper" type="com.xing.Myer">
         <id column="uid" property="id"/>
-
         <result column="uname" property="name"/>
         <result column="pwd" property="password"/>
     </resultMap>
+
+
+
 </mapper>

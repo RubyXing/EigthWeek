@@ -3,8 +3,8 @@ package com.xing;/*
  *
  */
 
-import com.xing.mapper.PersonMapper;
-import com.xing.mapper.RoleMapper;
+import com.xing.mapper.*;
+import com.xing.pojo.Boss;
 import com.xing.pojo.Person;
 import com.xing.pojo.Role;
 import lombok.Cleanup;
@@ -40,9 +40,28 @@ public class Launcher2 {
 
 
             //多对多
-            RoleMapper roleMapper = session.getMapper(RoleMapper.class);
-            Role roleById = roleMapper.findRoleById(1001);
-            System.out.println(roleById);
+//            RoleMapper roleMapper = session.getMapper(RoleMapper.class);
+//            Role roleById = roleMapper.findRoleById(1001);
+//            System.out.println(roleById);
+
+//            自动映射,注解
+//            BossMapper bossMapper=session.getMapper(BossMapper.class);
+//            System.out.println(bossMapper.findAll());
+//            System.out.println(bossMapper.findById(1001));
+//            System.out.println(bossMapper.findLikeName("%马%"));
+//            Boss boss=new Boss().setBid(1004).setBname("一二三");
+//            System.out.println(bossMapper.addOne(boss));
+//            session.commit();
+
+//            OneToOne oneToOne = session.getMapper(OneToOne.class);
+//            System.out.println(oneToOne.findHById(1001));
+
+//            OneToMore oneToMore = session.getMapper(OneToMore.class);
+//            System.out.println(oneToMore.findPById(1001));
+
+            MoreToMore moreToMore = session.getMapper(MoreToMore.class);
+            System.out.println(moreToMore.findRById(1001));
+
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Launcher2 {
-    private static Log logger = LogFactory.getLog(Launcher2.class);
     public static void main(String[] args) {
         try {
 
